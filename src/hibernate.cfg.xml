@@ -5,7 +5,7 @@
 <hibernate-configuration>
 	<session-factory>
 
-		 <!-- 数据库驱动 -->
+		 <!-- 数据库驱动  -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		 <!-- 数据库url -->
 		<property name="hibernate.connection.url">jdbc:mysql:///hibernate</property>

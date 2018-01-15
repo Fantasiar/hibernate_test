@@ -7,7 +7,6 @@
 		<id name="cust_id" column="cust_id">
 			<generator class="native"></generator>
 		</id>
-		
 		<property name="cust_name" column="cust_name"/>
 		<property name="cust_source" column="cust_source"/>
 		<property name="cust_industry" column="cust_industry"/>

@@ -1,4 +1,7 @@
 package com.fouter.hello;
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -6,29 +9,28 @@ import org.hibernate.cfg.Configuration;
 import org.junit.Test;
 
 import com.fouter.domain.Customer;
+import com.fouter.utils.HibernateUtils;
+import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
 
 public class Demo {
 	@Test
 	//保存客户
 	public void fun1(){
-		Configuration configuration=new Configuration().configure();
-		
-		SessionFactory sFactory=configuration.buildSessionFactory();
-		
-		Session session=sFactory.openSession();
+		Session session=HibernateUtils.openSession();
 		
 		Transaction transaction=session.beginTransaction();
 		
-		Customer customer=new Customer();
+	//	Query query=session.createQuery("from Customer where cust_id= :aaa and cust_name= :bbb");
 		
-		customer.setCust_name("小明");
+		Query query=session.createQuery("from Customer");
 		
-		customer.setCust_source("市场运营");
+		List<Customer> list=query.list();
 		
-		session.save(customer);
+		System.out.println(list);
 		
 		transaction.commit();
 		
 		session.close();
 	}
+	
 }
